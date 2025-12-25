@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./app.jsx";
+import App from "./App.jsx";
 import "./../index.css";
 import { AuthProvider } from "./context/AuthContext.jsx";
 import { AlertProvider } from "./context/AlertContext";
