@@ -244,11 +244,9 @@ export default function Header() {
 
           {/* ================= PROFILE ================= */}
           {user && (
-            <div
-              style={{ position: "relative" }}
-              onMouseEnter={() => setProfileOpen(true)}
-              onMouseLeave={() => setProfileOpen(false)}
-            >
+            <div style={{ position: "relative" }}>
+<div style={{ position: "relative" }}>
+
               <div
                 style={{
                   width: 40,
