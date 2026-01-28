@@ -150,14 +150,29 @@ export default function Group() {
   }
 };
 
-  const addMember = async () => {
-    if (!newMemberUsername.trim()) return;
+ const addMember = async () => {
+  if (!newMemberUsername.trim()) {
+    showAlert("Enter a username", "error");
+    return;
+  }
+
+  try {
     const res = await api.post(`/groups/${id}/members`, {
       username: newMemberUsername,
     });
+
     setGroup(res.data);
     setNewMemberUsername("");
-  };
+    showAlert("Member added successfully");
+  } catch (err) {
+    if (err.response?.status === 404) {
+      showAlert("User does not exist", "error");
+    } else {
+      showAlert("Failed to add member", "error");
+    }
+  }
+};
+
 
   const removeMember = async (memberId) => {
     if (!window.confirm("Remove this member?")) return;
@@ -165,6 +180,7 @@ export default function Group() {
     try {
       const res = await api.delete(`/groups/${id}/members/${memberId}`);
       setGroup(res.data);
+       showAlert("member removed successfully!");
     } catch (err) {
       showAlert(err.response?.data?.message || "Cannot remove member");
     }

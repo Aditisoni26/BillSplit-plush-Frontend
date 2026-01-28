@@ -248,21 +248,24 @@ export default function Header() {
 <div style={{ position: "relative" }}>
 
               <div
-                style={{
-                  width: 40,
-                  height: 40,
-                  borderRadius: "50%",
-                  background: "linear-gradient(135deg,#6366f1,#4f46e5)",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  fontWeight: 700,
-                  fontSize: 18,
-                  cursor: "pointer"
-                }}
-              >
-                {(user.name || user.email)[0].toUpperCase()}
-              </div>
+  onClick={() => setProfileOpen(!profileOpen)}
+  style={{
+    width: 40,
+    height: 40,
+    borderRadius: "50%",
+    background: "linear-gradient(135deg,#6366f1,#4f46e5)",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    fontWeight: 700,
+    fontSize: 18,
+    cursor: "pointer"
+  }}
+>
+  {(user.name || user.email)[0].toUpperCase()}
+</div>
+
+               </div>
 
               {profileOpen && (
                 <div
