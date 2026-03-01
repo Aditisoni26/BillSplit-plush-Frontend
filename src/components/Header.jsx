@@ -14,7 +14,7 @@ export default function Header() {
   const [notifOpen, setNotifOpen] = useState(false);
   const [notifications, setNotifications] = useState([]);
 
-  /* ---------------- LOAD NOTIFICATIONS ---------------- */
+  /*  LOAD NOTIFICATIONS  */
   useEffect(() => {
     if (!user) return;
 
@@ -25,16 +25,16 @@ export default function Header() {
 
 
   
-  /* ---------------- LOGOUT ---------------- */
+  /*  LOGOUT  */
   const logout = () => {
     authLogout();
     showAlert("Logged out successfully");
     navigate("/login");
   };
 
-  /* ---------------- DELETE NOTIFICATION ---------------- */
+  /*  DELETE NOTIFICATION  */
   const deleteNotification = async (id, e) => {
-    e.stopPropagation(); // 🔥 prevent navigation
+    e.stopPropagation(); //  prevent navigation
     try {
       await api.delete(`/notifications/${id}`);
       setNotifications(prev => prev.filter(n => n._id !== id));
@@ -66,7 +66,7 @@ export default function Header() {
 </button>
 
 
-          {/* ================= NOTIFICATIONS ================= */}
+          {/*  NOTIFICATIONS  */}
           <div style={{ position: "relative" }}>
             <button
               onClick={() => setNotifOpen(!notifOpen)}
@@ -242,7 +242,7 @@ export default function Header() {
             )}
           </div>
 
-          {/* ================= PROFILE ================= */}
+          {/* PROFILE */}
           {user && (
             <div style={{ position: "relative" }}>
 <div style={{ position: "relative" }}>
